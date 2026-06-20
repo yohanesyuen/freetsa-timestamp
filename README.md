@@ -47,7 +47,7 @@ This is a **skill** — an instruction pack Claude Code reads to know how to
 do a specific job. Installing it just means putting this folder where
 Claude Code looks for skills.
 
-**The easy way:** open Claude Code and paste this single prompt:
+**Using Claude Code (CLI)?** Open it and paste this single prompt:
 
 ```
 Install the Claude Code skill from https://github.com/yohanesyuen/freetsa-timestamp
@@ -58,9 +58,21 @@ already exists), then confirm it now appears in the available skills list.
 Claude Code will clone the repo into the right place automatically. No
 manual file copying needed.
 
-**Alternative — Claude.ai / Cowork:** download
-[`freetsa-timestamp.skill`](freetsa-timestamp.skill) from this repo and add
-it through the "Add Skill" option in your skills settings.
+**Using Claude on the web (claude.ai)?** Skills there work a little
+differently — you upload the packaged skill file instead of pointing Claude
+at a repo:
+
+1. Make sure code execution is turned on: **Settings → Capabilities**, enable
+   it if it isn't already (required for skills to run on Free/Pro/Max plans).
+2. Go to **Settings → Capabilities → Skills** (sometimes shown as
+   **Customize → Skills**).
+3. Click **+ Create skill**, then choose **Upload a skill**.
+4. Download [`freetsa-timestamp.skill`](freetsa-timestamp.skill) from this
+   repo to your computer first, then select that file in the upload dialog.
+5. Once it appears in your skills list, just ask Claude to "timestamp this
+   file" in a new chat — same as below.
+
+This also works the same way in **Cowork**.
 
 ## Using it
 
