@@ -49,6 +49,20 @@ directly), say so plainly: `"source_of_data": "Generated directly by Claude from
 
 1. **Identify the file to timestamp** — something Claude already wrote to disk in this conversation.
 
+   If the data still needs to be *fetched* before it can be timestamped (e.g.
+   the user wants to notarize a remote file or API response you haven't
+   pulled down yet), fetch it directly to disk with `curl -o <path> <url>` via
+   Bash rather than `WebFetch`. `WebFetch` converts the response into text and
+   returns it through your context — fine when you need to read or reason
+   about the content, but wasteful here, since the timestamping script reads
+   the file straight off disk and never needs you to have seen its bytes. For
+   large files this is the difference between a few tokens and the entire
+   file's worth of tokens. Reserve `WebFetch` for cases where you genuinely
+   need to look at the content (e.g. to decide what to name the file, or to
+   reformat it) before it's timestamped — and even then, only let it carry
+   what you actually need to reason about, not the full payload if a `curl`
+   download would do.
+
 2. **Write a metadata JSON file** with the four fields above. Example:
 
    ```json
